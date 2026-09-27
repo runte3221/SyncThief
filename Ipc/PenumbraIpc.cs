@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using Penumbra.Api;
@@ -55,11 +56,12 @@ public class PenumbraIpc
         }
     }
 
-    public ResourceTreeDto[]? GetTreesForObject(ushort objectIndex)
+    public IEnumerable<ResourceTreeDto>? GetTreesForObject(ushort objectIndex)
     {
         try
         {
-            return _getResourceTrees.Invoke(true, [objectIndex]);
+            var trees = _getResourceTrees.Invoke(true, [objectIndex]);
+            return trees?.Where(t => t != null)!;
         }
         catch (Exception ex)
         {
@@ -68,11 +70,12 @@ public class PenumbraIpc
         }
     }
 
-    public ResourceTreeDto[]? GetTreesForPlayer()
+    public IEnumerable<ResourceTreeDto>? GetTreesForPlayer()
     {
         try
         {
-            return _getPlayerResourceTrees.Invoke(true);
+            var dict = _getPlayerResourceTrees.Invoke(true);
+            return dict?.Values;
         }
         catch (Exception ex)
         {

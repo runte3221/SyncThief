@@ -78,7 +78,7 @@ public class ResourceScanner
         }
 
         var trees = _penumbraIpc.GetTreesForObject((ushort)player.ObjectIndex);
-        if (trees == null || trees.Length == 0)
+        if (trees == null || !trees.Any())
         {
             _log.Debug($"No resource trees returned for {player.Name} (index: {player.ObjectIndex})");
             return;
