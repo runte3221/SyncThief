@@ -42,12 +42,19 @@ jobs:
         $ErrorActionPreference = "Continue"
         dotnet build SyncThief.csproj -c Release /p:Platform="x64" --no-restore 2>&1 | Tee-Object -FilePath "build.log"
         if ($LASTEXITCODE -ne 0) {
-          Write-Error "Build failed! Full log output:"
-          Get-Content "build.log"
+          Write-Error "Build failed! Outputting build.log:"
+          Get-Content "build.log" | ForEach-Object { Write-Output "BUILD_LOG: $_" }
           exit 1
         }
       env:
         DALAMUD_HOME: ${{ github.workspace }}/dalamud
+
+    - name: Upload Build Log on Failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-log
+        path: build.log
 
     - name: Locate & Prepare Distribution Package
       shell: pwsh

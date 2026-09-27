@@ -59,7 +59,7 @@ public class PenumbraIpc
     {
         try
         {
-            return _getResourceTrees.Invoke(true, objectIndex);
+            return _getResourceTrees.Invoke(true, [objectIndex]);
         }
         catch (Exception ex)
         {

@@ -5,6 +5,7 @@ using System.Linq;
 using Dalamud.Game.ClientState.Objects;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using Dalamud.Plugin.Services;
+using Dalamud.Utility;
 using Penumbra.Api;
 using SyncThief.Ipc;
 using SyncThief.Models;
@@ -41,10 +42,11 @@ public class ResourceScanner
             if (obj is IPlayerCharacter pc)
             {
                 var isTarget = target != null && pc.EntityId == target.EntityId;
+                var worldName = pc.HomeWorld.ValueNullable?.Name.ToString() ?? string.Empty;
                 var data = new PlayerSyncData
                 {
                     Name = pc.Name.TextValue,
-                    World = pc.HomeWorld.ValueNullable?.Name.ExtractText() ?? string.Empty,
+                    World = worldName,
                     ObjectIndex = pc.ObjectIndex,
                     EntityId = pc.EntityId,
                     IsTarget = isTarget,
