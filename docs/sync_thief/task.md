@@ -1,23 +1,23 @@
 # SyncThief 開発タスクリスト
 
-- [/] 調査・設計 <!-- id: 0 -->
+- [x] 調査・設計 <!-- id: 0 -->
   - [x] Penumbra IPC API (`GetGameObjectResourceTrees`, `ResourceNodeDto`) の仕様確認 <!-- id: 1 -->
   - [x] MareSempiterne のキャッシュ構造・Penumbra 一時コレクション連携の解析 <!-- id: 2 -->
   - [x] `.pmp` (Penumbra Mod Pack) フォーマット（`meta.json`, `default_mod.json`, ZIP構造）の仕様確認 <!-- id: 3 -->
-  - [x] 実装計画（`implementation_plan.md`）の作成とユーザー承認待ち <!-- id: 4 -->
-- [ ] プロジェクト基盤の構築 <!-- id: 5 -->
-  - [ ] `SyncThief.csproj`, `SyncThief.json`, `package.json`, `CHANGELOG.md`, `README.md` の作成 <!-- id: 6 -->
-  - [ ] GitHub Actions ワークフロー (`.github/workflows/build.yml`) の設定 <!-- id: 7 -->
-  - [ ] プラグイン配布用 `repo.json` の作成および既存リポジトリへの追加 <!-- id: 8 -->
-- [ ] プラグインコアロジックの実装 <!-- id: 9 -->
-  - [ ] `Configuration.cs`: 保存先フォルダ等のプラグイン設定 <!-- id: 10 -->
-  - [ ] `Ipc/PenumbraIpc.cs`: Penumbra IPC 連携（ResourceTrees, ModDirectory） <!-- id: 11 -->
-  - [ ] `Models/SyncModels.cs`: プレイヤー・スロット・リソースデータ構造の定義 <!-- id: 12 -->
-  - [ ] `Services/ResourceScanner.cs`: 周囲プレイヤー／ターゲットの同期リソース解析とスロット分類 <!-- id: 13 -->
-  - [ ] `Services/PmpPacker.cs`: 選択されたリソースを `.pmp` アーカイブとしてパッケージング <!-- id: 14 -->
-  - [ ] `UI/MainWindow.cs`: プレイヤー一覧、部位別選択UI、エクスポート機能の UI 実装 <!-- id: 15 -->
-  - [ ] `Plugin.cs`: プラグインエントリポイント、サービス登録、コマンドハンドラ (`/syncthief`) <!-- id: 16 -->
-- [ ] 検証・ビルド・リリース <!-- id: 17 -->
-  - [ ] GitHub へのプッシュと CI/CD ビルドの確認 <!-- id: 18 -->
-  - [ ] ランチャー配布設定の確認 <!-- id: 19 -->
-  - [ ] `walkthrough.md` の作成と `docs/sync_thief` への同期 <!-- id: 20 -->
+  - [x] 実装計画（`implementation_plan.md`）の作成とユーザー承認 <!-- id: 4 -->
+- [x] プロジェクト基盤の構築 <!-- id: 5 -->
+  - [x] `SyncThief.csproj`, `SyncThief.json`, `package.json`, `CHANGELOG.md`, `README.md` の作成 <!-- id: 6 -->
+  - [x] GitHub Actions ワークフロー (`.github/workflows/build.yml`) の設定 <!-- id: 7 -->
+  - [x] プラグイン配布用 `repo.json` の作成および既存リポジトリへの追加 <!-- id: 8 -->
+- [x] プラグインコアロジックの実装 <!-- id: 9 -->
+  - [x] `Configuration.cs`: 保存先フォルダ等のプラグイン設定 <!-- id: 10 -->
+  - [x] `Ipc/PenumbraIpc.cs`: Penumbra IPC 連携（ResourceTrees, ModDirectory） <!-- id: 11 -->
+  - [x] `Models/SyncModels.cs`: プレイヤー・スロット・リソースデータ構造の定義 <!-- id: 12 -->
+  - [x] `Services/ResourceScanner.cs`: 周囲プレイヤー／ターゲットの同期リソース解析とスロット分類 <!-- id: 13 -->
+  - [x] `Services/PmpPacker.cs`: 選択されたリソースを `.pmp` アーカイブとしてパッケージング <!-- id: 14 -->
+  - [x] `UI/MainWindow.cs`: プレイヤー一覧、部位別選択UI、エクスポート機能の UI 実装 <!-- id: 15 -->
+  - [x] `Plugin.cs`: プラグインエントリポイント、サービス登録、コマンドハンドラ (`/syncthief`) <!-- id: 16 -->
+- [x] 検証・ビルド・リリース <!-- id: 17 -->
+  - [x] GitHub へのプッシュと CI/CD ビルドの確認（v1.0.4 ビルド成功 & Release 作成完了） <!-- id: 18 -->
+  - [x] ランチャー配布設定の確認（HousingToStagehand- 側の repo.json との統合） <!-- id: 19 -->
+  - [x] `walkthrough.md` の作成と `docs/sync_thief` への同期 <!-- id: 20 -->
