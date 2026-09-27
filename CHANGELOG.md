@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.2] - 2026-09-27
+- Update ImGui namespace to Dalamud.Bindings.ImGui for Dalamud 15
+- Adopt constructor injection for Dalamud services in Plugin.cs
+
 ## [1.0.1] - 2026-09-27
 - Fix Penumbra IPC Invoke parameter type mismatch
 - Fix World name resolution

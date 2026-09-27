@@ -14,12 +14,12 @@ public sealed class Plugin : IDalamudPlugin
     public string Name => "SyncThief";
     private const string CommandName = "/syncthief";
 
-    [PluginService] public static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
-    [PluginService] public static ICommandManager CommandManager { get; private set; } = null!;
-    [PluginService] public static IObjectTable ObjectTable { get; private set; } = null!;
-    [PluginService] public static ITargetManager TargetManager { get; private set; } = null!;
-    [PluginService] public static IChatGui ChatGui { get; private set; } = null!;
-    [PluginService] public static IPluginLog Log { get; private set; } = null!;
+    public static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
+    public static ICommandManager CommandManager { get; private set; } = null!;
+    public static IObjectTable ObjectTable { get; private set; } = null!;
+    public static ITargetManager TargetManager { get; private set; } = null!;
+    public static IChatGui ChatGui { get; private set; } = null!;
+    public static IPluginLog Log { get; private set; } = null!;
 
     public Configuration Configuration { get; init; }
     public WindowSystem WindowSystem { get; init; } = new("SyncThief");
@@ -29,8 +29,21 @@ public sealed class Plugin : IDalamudPlugin
     public PmpPacker Packer { get; init; }
     public MainWindow MainWindow { get; init; }
 
-    public Plugin()
+    public Plugin(
+        IDalamudPluginInterface pluginInterface,
+        ICommandManager commandManager,
+        IObjectTable objectTable,
+        ITargetManager targetManager,
+        IChatGui chatGui,
+        IPluginLog log)
     {
+        PluginInterface = pluginInterface;
+        CommandManager = commandManager;
+        ObjectTable = objectTable;
+        TargetManager = targetManager;
+        ChatGui = chatGui;
+        Log = log;
+
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
         Configuration.Initialize(PluginInterface);
 
