@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.4] - 2026-09-27
+- Add required Punchline and standard Dalamud 15 manifest properties to SyncThief.json
+
 ## [1.0.3] - 2026-09-27
 - Fix Penumbra IPC GetPlayerResourceTrees return type (Dictionary)
 - Fix GetTreesForObject return type nullability with IEnumerable
